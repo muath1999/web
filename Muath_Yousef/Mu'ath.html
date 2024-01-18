@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #D1884F;
+            --secondary-color: #008AAA;
+            --tertiary-color: #3BBADB;
+            --black-color: #000000;
+            --red-color: #FF0000;
+        }
+
+        body {
+            margin: 10px;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        header {
+            width: 90%;
+            max-width: 800px;
+            border: thin solid var(--tertiary-color);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            transition: border 0.3s ease;
+        }
+
+        #left-side,
+        #right-side {
+            padding: 20px;
+        }
+
+        #left-side {
+            padding-left: 50px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        #right-side {
+            background-color: white;
+            padding-bottom: 100px;
+            padding-right: 50px;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        header:hover #left-side,
+        header:hover #right-side {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        button {
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-right: 20px;
+            font-size: small;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: white;
+        }
+
+        button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        #image-container {
+            border-radius: 0% 50% 50% 50% / 50% 50% 50% 0%;
+            box-shadow: 10px 10px 0px 10px rgba(13, 191, 0236, 10.0);
+            margin-top: 30%;
+            margin-right: 30px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        #image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0% 50% 50% 50% / 50% 50% 50% 0%;
+            display: block;
+            transition: box-shadow 0.3s ease;
+        }
+
+        #image-container a {
+            display: block;
+            position: relative;
+        }
+
+        #image-container:hover {
+            transform: scale(1.1);
+            box-shadow: 10px 10px 0px 10px var(--red-color);
+        }
+
+        #image-container img:nth-child(2) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        #image-container:hover img:nth-child(2) {
+            display: block;
+        }
+
+        #welcome {
+            font-size: small;
+            color: var(--tertiary-color);
+            margin-top: 40%;
+        }
+
+        #message {
+            font-weight: bold;
+            font-size: xx-large;
+            color: var(--secondary-color);
+        }
+
+        #paragraph {
+            color: var(--black-color);
+            font-size: 12px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        #paragraph.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #seemore {
+            color: var(--tertiary-color);
+            text-align: right;
+            transition: color 0.3s ease;
+        }
+
+        #seemore:hover {
+            color: var(--secondary-color);
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        #buttons.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        button.hire-button {
+            margin-right: 120px;
+        }
+
+        button.hire-button,
+        button.project-button {
+            color: var(--tertiary-color);
+            border: 2px solid var(--tertiary-color);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            box-shadow: var(--tertiary-color) 15px;
+        }
+
+        .hire-button:hover,
+        .project-button:hover {
+            background-color: var(--tertiary-color);
+            color: white;
+            border-color: var(--tertiary-color);
+            transform: scale(1.1);
+        }
+
+        button.home-button {
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        button.home-button:hover {
+            color: white;
+        }
+
+        #catch-me {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: var(--tertiary-color);
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        body:hover #catch-me {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="left-side">
+            <p id="welcome">Welcome to my site</p>
+            <p id="message">Hi, I'm Mu'ath, <span style="color: var(--primary-color);">Specialist</span> in cyber security.</p>
+            <p id="paragraph" class="show">
+                I am interested in everything related to the Red Berets, including topics specialized in the Bug Bounty
+                and the discovery of vulnerabilities.
+                <a href="#" id="seemore">See More...</a>
+            </p>
+            <div id="buttons" class="show">
+                <button class="hire-button">Hire me !</button>
+                <button class="project-button">See My Project</button>
+            </div>
+        </div>
+        <div id="right-side">
+            <nav>
+                <button class="home-button">Home</button>
+                <button class="about-button">About me</button>
+                <button class="contact-button">Contact me</button>
+            </nav>
+            <div id="image-container">
+                <a href="#">
+                    <img src="html_2.png.jpeg" alt="Description of the image">
+                    <img src="html_1.png.jpeg" alt="Description of the new image">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div id="catch-me">Catch me if you can!</div>
+</body>
+
+</html>

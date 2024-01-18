@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #D1884F;
+            --secondary-color: #008AAA;
+            --tertiary-color: #3BBADB;
+            --black-color: #000000;
+        }
+
+        body {
+            margin: 10px;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        header {
+            width: 90%;
+            max-width: 800px;
+            border: thin solid var(--tertiary-color);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        #left-side,
+        #right-side {
+            padding: 20px;
+        }
+
+        #left-side {
+            padding-left: 50px;
+
+        }
+
+        #right-side {
+            background-color: white;
+            padding-bottom: 100px;
+            padding-right: 50px;
+
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-right: 10px;
+            font-size: small;
+            cursor: pointer;
+        }
+
+        #image-container {
+            border-radius: 0% 50% 50% 50% / 50% 50% 50% 0%;
+            box-shadow: 10px 10px 0px 10px rgba(13, 191, 0236, 10.0);
+            margin-top: 30%;
+            margin-right: 30px;
+            overflow: hidden;
+            transition: transform 0.3s; 
+        }
+
+        #image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0% 50% 50% 50% / 50% 50% 50% 0%;
+        }
+
+        #image-container:hover {
+            transform: scale(1.1); 
+        }
+
+        #welcome {
+            font-size: small;
+            color: var(--tertiary-color);
+            margin-top: 40%;
+        }
+
+        #message {
+            font-weight: bold;
+            font-size: xx-large;
+            color: var(--secondary-color);
+        }
+
+        #paragraph {
+            color: var(--black-color);
+            font-size: 12px;
+        }
+
+        #seemore {
+            color: var(--tertiary-color);
+            text-align: right;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 0px;
+        }
+
+        .hire-button {
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: small;
+            border: 1px solid lightblue;
+            border-radius: 6px;
+            padding: 0px 10px;
+            margin-left: 0px;
+            box-shadow: 0 7px 8px rgba(14, 163, 189, 0.2);
+        }
+
+        .project-button {
+            background-color: white;
+            color: var(--tertiary-color);
+            cursor: pointer;
+            border-radius: 6px;
+            margin-left: 37%;
+            font-size: small;
+            border: 1px solid var(--tertiary-color);
+        }
+
+        button.about-button {
+            color: var(--black-color);
+        }
+
+        button.contact-button {
+            color: var(--black-color);
+        }
+
+        button.home-button {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="left-side">
+            <p id="welcome">Welcome to my site</p>
+            <p id="message">Hi, I'm Mu'ath, <span style="color: var(--primary-color);">Specialist</span> in cyber security.</p>
+            <p id="paragraph">
+                I am interested in everything related to the Red Berets, including topics specialized in the Bug Bounty
+                and the discovery of vulnerabilities.
+                <a href="#" id="seemore">See More...</a>
+            </p>
+            <div id="buttons">
+                <button class="hire-button">Hire me !</button>
+                <button class="project-button">See My Project</button>
+            </div>
+        </div>
+        <div id="right-side">
+            <nav>
+                <button class="home-button">Home</button>
+                <button class="about-button">About me</button>
+                <button class="contact-button">Contact me</button>
+            </nav>
+            <div id="image-container">
+                <a href="#">
+                    <img src="New folder (3)/html_2.png.jpeg" alt="Description of the image">
+                    <img src="path/to/your/new/image.jpg" alt="Description of the new image" style="display:none;">
+                </a>
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>
+
+
+**********************************************************************************
+function twoSum(nums, target) {
+    const numIndices = new Map();
+
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+
+        if (numIndices.has(complement)) {
+            return [numIndices.get(complement), i];
+        }
+
+        numIndices.set(nums[i], i);
+    }
+
+    return []; 
+}
+
+
+const nums = [2, 7, 11, 15];
+const target = 9;
+const result = twoSum(nums, target);
+console.log(result);
